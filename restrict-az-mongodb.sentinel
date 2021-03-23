@@ -7,7 +7,6 @@
 # Import common-functions/tfplan-functions/tfplan-functions.sentinel
 # with alias "plan"
 import "tfplan-functions" as plan
-#import "common-functions/tfplan-functions/tfplan-functions.sentinel" as plan
 
 # Allowed MongoDB Atlas Zones
 # Include "null" to allow missing or computed values
