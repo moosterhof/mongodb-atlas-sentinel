@@ -1,8 +1,4 @@
-# This policy uses the Sentinel tfplan/v2 import to restrict
-# the availability zones used by MongoDB Atlas instances.
-# This is an easier way to restrict regions than to restrict
-# the region of the AWS provider since that requires the
-# tfconfig/v2 import.
+# MongoDB Atlas instances are only allowed to be provisioned in designated regions.
 
 # Import common-functions/tfplan-functions/tfplan-functions.sentinel
 # with alias "plan"
