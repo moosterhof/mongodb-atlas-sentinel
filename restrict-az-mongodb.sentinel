@@ -8,11 +8,9 @@
 # with alias "plan"
 import "tfplan-functions" as plan
 
-# Allowed MongoDB Atlas Zones
+# Allowed MongoDB Atlas Regions
 # Include "null" to allow missing or computed values
-allowed_zones = [
-	"AP_SOUTHEAST_1",
-]
+param allowed_regions default [ "AP_SOUTHEAST_1" ]
 
 # Get all MongoDB Atlas instances
 allMDBAtlasInstances = plan.find_resources("mongodbatlas_cluster")
@@ -20,7 +18,7 @@ allMDBAtlasInstances = plan.find_resources("mongodbatlas_cluster")
 # Filter to MongoDB Atlas instances with violations
 # Warnings will be printed for all violations since the last parameter is true
 violatingMDBAtlasInstances = plan.filter_attribute_not_in_list(allMDBAtlasInstances,
-	"provider_region_name", allowed_zones, true)
+	"provider_region_name", allowed_regions, true)
 
 # Main rule
 main = rule {
